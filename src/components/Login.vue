@@ -1,5 +1,10 @@
 <template>
   <div>
+    <h1 data-v-ef68022e="" style="
+    font-weight: 700;
+    background: yellowgreen;
+    padding: 20px;
+">Firebase link accounts with different or same email address </h1>
   <div v-if="!auth">
     
   <div id="firebaseui-container"></div>
@@ -86,8 +91,7 @@ export default {
         }
         const linkWithPopup = async(provider_) => {
           await user.linkWithPopup(provider_).then(function(result) {
-            var user2 = result.user;
-            console.log(` user`, user2);
+            console.log(` result`, result);
            }).catch(function(error) {
             console.log(error);
            });
@@ -144,7 +148,7 @@ export default {
               main_credential = user.isCredentiel,
               resultCredential = result.credential;
             if(!window.withSameEmail) {
-              if(bol) {
+              if(bol) {// this reserved not working (signin with phone and set it as credential)
                 if(user.isNewUser && user.providerData.length == 1) {
                   deleteUser = user;
                   const elem = document.createElement("DIV");
@@ -200,29 +204,43 @@ export default {
           
         };
         const emailLinking = async(user) => {
-          var provider_, providerId = user.isProviderId,
-            bolPhone = providerId == firebase.auth.PhoneAuthProvider.PROVIDER_ID;
-          if((!window.withSameEmail && providerId == firebase.auth.PhoneAuthProvider.PROVIDER_ID) && !window.withSameEmail && user.providerData.length == 1) {
+          var provider_, providerId = user.isProviderId;
+          if(providerId == firebase.auth.PhoneAuthProvider.PROVIDER_ID) {
+            if(!window.withSameEmail &&  user.providerData.length == 1) {
+            /* // this reserved not working (signin with phone and set it as credential)
+            const bolPhone = providerId == firebase.auth.PhoneAuthProvider.PROVIDER_ID
+            if(!providerInArray(user.providerData, firebase.auth.FacebookAuthProvider.PROVIDER_ID)) {
+              provider_ = new firebase.auth.FacebookAuthProvider();
+              await linking(user, provider_, bolPhone);
+            }
+            if(!providerInArray(user.providerData, firebase.auth.GoogleAuthProvider.PROVIDER_ID)) {
+              provider_ = new firebase.auth.GoogleAuthProvider();
+              await linking(user, provider_, bolPhone);
+            }
+            */
             if(!providerInArray(user.providerData, firebase.auth.FacebookAuthProvider.PROVIDER_ID)) await linkWithPopup(new firebase.auth.FacebookAuthProvider());
             if(!providerInArray(user.providerData, firebase.auth.GoogleAuthProvider.PROVIDER_ID)) await linkWithPopup(new firebase.auth.GoogleAuthProvider());
+          }
           } else if(providerId == firebase.auth.EmailAuthProvider.PROVIDER_ID) {
-            if(!providerInArray(user.providerData, firebase.auth.FacebookAuthProvider.PROVIDER_ID)) {
+            /*if(!providerInArray(user.providerData, firebase.auth.FacebookAuthProvider.PROVIDER_ID)) {
               provider_ = new firebase.auth.FacebookAuthProvider();
               await linking(user, provider_);
             }
             if(!providerInArray(user.providerData, firebase.auth.GoogleAuthProvider.PROVIDER_ID)) {
               provider_ = new firebase.auth.GoogleAuthProvider();
               await linking(user, provider_);
-            }
+            }*/
+            if(!providerInArray(user.providerData, firebase.auth.FacebookAuthProvider.PROVIDER_ID)) await linkWithPopup(new firebase.auth.FacebookAuthProvider());
+            if(!providerInArray(user.providerData, firebase.auth.GoogleAuthProvider.PROVIDER_ID)) await linkWithPopup(new firebase.auth.GoogleAuthProvider());
             return;
           } else {
             if(!providerInArray(user.providerData, firebase.auth.FacebookAuthProvider.PROVIDER_ID)) {
               provider_ = new firebase.auth.FacebookAuthProvider();
-              await linking(user, provider_, bolPhone);
+              await linking(user, provider_);
             }
             if(!providerInArray(user.providerData, firebase.auth.GoogleAuthProvider.PROVIDER_ID)) {
               provider_ = new firebase.auth.GoogleAuthProvider();
-              await linking(user, provider_, bolPhone);
+              await linking(user, provider_);
             }
           }
           console.log(firebase.auth.EmailAuthProvider.PROVIDER_ID, providerInArray(user.providerData, firebase.auth.EmailAuthProvider.PROVIDER_ID))

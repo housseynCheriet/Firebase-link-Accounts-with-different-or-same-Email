@@ -1,5 +1,5 @@
 <template>
-	<div>
+  <div>
  
   <pre>
 <code id="userInfo">
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-	import firebase from "firebase/app";
+  import firebase from "firebase/app";
   import { mapGetters, mapActions } from "vuex";
  /* console.log(
     mapGetters()
@@ -64,7 +64,7 @@ if (firebase.auth().currentUser) {
           
 user.isEmail= user.email?user.email:user.providerData[0].email;
           this.uid=user.uid;
-   this.username= user.displayName;
+   
 
              this.userInfo = {
                 displayName: user.displayName,
@@ -77,7 +77,7 @@ user.isEmail= user.email?user.email:user.providerData[0].email;
                 providerData: user.providerData
               };
 
-
+this.username= user.displayName?user.displayName:(user.isEmail?user.isEmail:user.phoneNumber);
           } else {
             this.userInfo = "User is signed out.";
             
@@ -100,7 +100,7 @@ user.isEmail= user.email?user.email:user.providerData[0].email;
 };
 </script>
 <style  lang="scss" scoped>
-	a {
+  a {
     position: relative;
     top: -10px;
     background: blueviolet;
