@@ -20,7 +20,7 @@ import {
 }
 from "vuex";
 import User from './User'
-window.withSameEmail = true; //withSameEmail
+window.withSameEmail = false; //withSameEmail
 console.log(typeof process.env.VUE_APP_WITH_SAME_EMAIL, process.env.VUE_APP_WITH_SAME_EMAIL)
 export default {
   name: "Login",

@@ -6,13 +6,13 @@ import firebase from 'firebase'
 
   
   var config = {//slectjs
-    apiKey: "AIzaSyD2WpYdvFpDgtjPVNZhKWMgpR03YMMVkBg",
-    authDomain: "signin-with-same-email.firebaseapp.com",
-    projectId: "signin-with-same-email",
-    storageBucket: "signin-with-same-email.appspot.com",
-    messagingSenderId: "564634343847",
-    appId: "1:564634343847:web:04ee43723078b28108be82",
-    measurementId: "G-S1T87ZWC8W"
+    apiKey: "AIzaSyA10-Ms1P6-rrBz6s9XDyR6vxmeoCJzJUc",
+    authDomain: "signin-with-any-email.firebaseapp.com",
+    projectId: "signin-with-any-email",
+    storageBucket: "signin-with-any-email.appspot.com",
+    messagingSenderId: "922977137341",
+    appId: "1:922977137341:web:4b05122143663f8b77bdd4",
+    measurementId: "G-60FJ3FHNHW"
     
   };   
 
