@@ -1,5 +1,5 @@
 <h1 align="center">
-   <img alt="Logo" src="https://drive.google.com/file/d/1uGUukPyHZzHIndB4ASAiS1kZQnSqEL8j/view?usp=sharing"/>
+   <img alt="Firebase link accounts with different or same Email" src="https://drive.google.com/file/d/1uGUukPyHZzHIndB4ASAiS1kZQnSqEL8j/view?usp=sharing"/>
 </h1>
 
 # DEMO
