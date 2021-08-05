@@ -4,7 +4,7 @@
 
 # DEMO
 
-[https://firebase-link-git-main-housseyn-1c8732.vercel.app](https://firebase-link-git-main-housseyn-1c8732.vercel.app)
+[https://firebase-link-accounts-with-different-or-same-email.vercel.app](https://firebase-link-accounts-with-different-or-same-email.vercel.app)
 
 [https://www.youtube.com/watch?v=f2XTo5gXJ-0](https://www.youtube.com/watch?v=f2XTo5gXJ-0)
 
